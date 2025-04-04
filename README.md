@@ -1,33 +1,34 @@
-# Smartes Aquarium mit ESP32
+# Smart Aquarium with ESP32
 
-## Überblick
-Dieses Projekt steuert die Beleuchtung eines Aquariums mithilfe eines ESP32-Mikrocontrollers. Es überwacht, ebenso die Temperatur im Aquarium mithilfe eines DS18B20-Temperatursensors und zeigt diese auf einem OLED-Display (SSD1306) an. Zusätzlich bietet es eine Weboberfläche, über die Benutzer Start- und Endzeiten für das Aquariumlicht einstellen können. Das Licht wird basierend auf der aktuellen Uhrzeit und den gewählten Start- und Endzeiten automatisch ein- oder ausgeschaltet.
+## Overview
+This project controls the lighting of an aquarium using an ESP32 microcontroller. It also monitors the temperature in the aquarium using a DS18B20 temperature sensor and displays it on an OLED display (SSD1306). Additionally, it offers a web interface that allows users to set start and end times for the aquarium light. The light is automatically turned on or off based on the current time and the configured schedule.
 
-## Funktionen
-- **WLAN-Verbindung**: Der ESP32 verbindet sich mit einem WLAN-Netzwerk.
-- **Webserver**: Eine Web-Oberfläche zur Steuerung der LED-Beleuchtung.
-- **Zeitschaltung**: Automatisches Ein- und Ausschalten der LEDs zu konfigurierbaren Zeiten.
-- **Manueller Modus**: LEDs können über Buttons auf der Web-Oberfläche an- und ausgeschaltet werden. (Noch nicht funktional)
-- **Temperaturmessung**: Ein DS18B20-Temperatursensor misst die Wassertemperatur.
-- **NTP-Zeitabfrage**: Der ESP32 synchronisiert sich mit einem NTP-Server, um die exakte Uhrzeit zu erhalten.
+## Features
+- **Wi-Fi Connection**: The ESP32 connects to a Wi-Fi network.
+- **Web Server**: A web interface to control the LED lighting.
+- **Timer Functionality**: Automatically turns the LEDs on and off at configurable times.
+- **Temperature Monitoring**: A DS18B20 temperature sensor measures the water temperature.
+- **NTP Time Synchronization**: The ESP32 syncs with an NTP server to obtain the accurate current time.
 
-## Funktionsweise
-- Temperaturmessung: Der DS18B20-Sensor misst die Temperatur, die stündlich erfasst und gespeichert wird.
-- Lichtsteuerung: Der Benutzer kann die Start- und Endzeiten für das Aquariumlicht einstellen. Basierend auf der aktuellen Uhrzeit wird das Licht automatisch ein- oder ausgeschaltet.
-- Webinterface: Das Webinterface bietet ein Dropdown-Menü zur Auswahl der Start- und Endzeiten für das Licht sowie eine grafische Darstellung der Temperatur über 24 Stunden.
-- OLED-Display: Das Display zeigt die aktuelle Temperatur sowie die Start- und Endzeiten des Lichts an.
+## How It Works
+- **Temperature Monitoring**: The DS18B20 sensor measures the temperature, which is recorded and stored hourly.
+- **Lighting Control**: Users can set the start and end times for the aquarium light. Based on the current time, the light turns on or off automatically.
+- **Web Interface**: The interface provides dropdown menus to select the lighting start and end times, along with a graphical display of the temperature over 24 hours.
+- **OLED Display**: The screen shows the current temperature and the lighting schedule (start and end times).
 
-## Benötigte Hardware
+## Required Hardware
 - ESP32
-- Buck Converter
+- Buck Converter 12V to 5V 
 - 12V LED
-- 12V Netzteil (abhängig von den LEDs)
-- DS18B20-Temperatursensor
+- 12V Power Supply (depending on the LEDs)
+- DS18B20 Temperature Sensor
 - IRF3708
-- SSD1306 OLED-Display
+- SSD1306 OLED Display
+- 4.7kΩ pull-up resistor
+- 10kΩ pull-up resistor
 
-## Software & Bibliotheken
-Benötigte Arduino-Bibliotheken:
+## Software & Libraries
+Required Arduino libraries:
 - `WiFi.h`
 - `WebServer.h`
 - `DallasTemperature.h`
@@ -37,15 +38,24 @@ Benötigte Arduino-Bibliotheken:
 - `Adafruit_GFX.h`
 - `Adafruit_SSD1306.h`
 
+## Setup & Installation
+1. **Prepare the Arduino IDE**:
+   - Install the ESP32 board libraries.
+   - Add the required libraries.
+2. **Upload the Code**:
+   - Update your Wi-Fi credentials.
+   - Upload the sketch to the ESP32.
+3. **Connect the Hardware**:
+   - Connect the LEDs and sensors to the ESP32.
+   - DS18B20 requires a 4.7kΩ pull-up resistor between DATA and VCC
+   - 10kΩ resistor between GPIO16 and the gate of the IRF3708 MOSFET
+4. **Open the Web Interface**:
+   - Open the IP address of the ESP32 in your browser to access the control panel.
 
-## Einrichtung & Installation
-1. **Arduino IDE vorbereiten**:
-   - Installiere die ESP32-Bibliotheken.
-   - Füge die benötigten Bibliotheken hinzu.
-2. **Code hochladen**:
-   - Passe die WLAN-Zugangsdaten an.
-   - Lade den Sketch auf den ESP32 hoch.
-3. **Hardware anschließen**:
-   - LEDs und Sensoren mit dem ESP32 verbinden.
-4. **Webinterface aufrufen**:
-   - Die IP-Adresse des ESP32 im Browser öffnen, um die Steuerung zu nutzen.
+##
+![SmartAquarium](https://github.com/user-attachments/assets/ec97f29c-efd0-41ce-901f-fd5413b42e33)
+![SmartAquarium_rückseite](https://github.com/user-attachments/assets/1c4a280e-f600-414a-b95d-9bd2e2317a92)
+
+## 
+![image](https://github.com/user-attachments/assets/a1b1169d-eb25-4af0-9cf1-22fc8773d1b1)
+
