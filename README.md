@@ -1,7 +1,7 @@
 # Smart Aquarium with ESP32
 
 ## Overview
-This project controls the lighting of an aquarium using an ESP32 microcontroller. It also monitors the temperature in the aquarium using a DS18B20 temperature sensor and displays it on an OLED display (SSD1306). Additionally, it offers a web interface that allows users to set start and end times for the aquarium light. The light is automatically turned on or off based on the current time and the configured schedule.
+This project manages the lighting of an aquarium using an ESP32 microcontroller. It also monitors the temperature in the aquarium using a DS18B20 temperature sensor and displays it on an OLED display (SSD1306). Additionally, it offers a web interface that allows users to set start and end times for the aquarium light. The light is automatically turned on or off based on the current time and the configured schedule.
 
 ## Features
 - **Wi-Fi Connection**: The ESP32 connects to a Wi-Fi network.
@@ -52,10 +52,13 @@ Required Arduino libraries:
 4. **Open the Web Interface**:
    - Open the IP address of the ESP32 in your browser to access the control panel.
 
-##
+## Project photos  
+**Front and rear views of the Smart Aquarium project**
+
 ![SmartAquarium](https://github.com/user-attachments/assets/ec97f29c-efd0-41ce-901f-fd5413b42e33)
+
 ![SmartAquarium_rückseite](https://github.com/user-attachments/assets/1c4a280e-f600-414a-b95d-9bd2e2317a92)
 
-## 
+## Circuit Diagram
 ![image](https://github.com/user-attachments/assets/a1b1169d-eb25-4af0-9cf1-22fc8773d1b1)
 
